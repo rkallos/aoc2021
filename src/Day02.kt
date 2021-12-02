@@ -1,7 +1,7 @@
 fun main() {
-    fun splitLine(s: String): Pair<String, Int> {
+    fun splitLine(s: String): Pair<Char, Int> {
         val pieces = s.split(" ")
-        return pieces[0] to pieces[1].toInt()
+        return pieces[0][0] to pieces[1].toInt()
     }
 
     fun part1(input: List<String>): Int {
@@ -10,10 +10,10 @@ fun main() {
         input.forEach {
             val (dir, amt) = splitLine(it)
             when (dir) {
-                "forward" -> h += amt
-                "backward" -> h -= amt
-                "down" -> v += amt
-                "up" -> v -= amt
+                'f' -> h += amt
+                'b' -> h -= amt
+                'd' -> v += amt
+                'u' -> v -= amt
             }
         }
         return h * v
@@ -26,13 +26,13 @@ fun main() {
         input.forEach {
             val (dir, amt) = splitLine(it)
             when (dir) {
-                "forward" -> {
+                'f' -> {
                     h += amt
                     v += (aim * amt)
                 }
-                "backward" -> h -= amt
-                "down" -> aim += amt
-                "up" -> aim -= amt
+                'b' -> h -= amt
+                'd' -> aim += amt
+                'u' -> aim -= amt
             }
         }
         return h * v
