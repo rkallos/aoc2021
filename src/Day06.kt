@@ -1,14 +1,11 @@
 fun main() {
-    fun nextDay(fish: LongArray): LongArray {
-        val res = LongArray(fish.size) { fish[(it + 1) % fish.size]}
-        res[6] += res[8]
-        return res
-    }
-
     fun solve(input: List<String>, days: Int): Long {
         var fish = longArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
         intsSplitBy(input[0], ",").forEach { fish[it]++ }
-        for (d in 1..days) fish = nextDay(fish)
+        for (d in 1..days) {
+            fish = LongArray(fish.size) { fish[(it + 1) % fish.size]}
+            fish[6] += fish[8]
+        }
         return fish.sum()
     }
 
