@@ -72,7 +72,7 @@ fun main() {
     }
 
     fun part1(input: List<String>): Int {
-        val draws = input[0].split(",").map { it.toInt() }
+        val draws = intsSplitBy(input[0], ",")
         val boards = makeBoards(input)
 
         for (n in draws) {
@@ -87,7 +87,7 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        val draws = input[0].split(",").map { it.toInt() }
+        val draws = intsSplitBy(input[0], ",")
         var boards = makeBoards(input)
 
         for (n in draws) {

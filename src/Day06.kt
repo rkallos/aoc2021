@@ -10,7 +10,7 @@ fun main() {
 
     fun solve(input: List<String>, days: Int): Long {
         var fish = hashMapOf<Int, Long>()
-        input[0].split(",").map { it.toInt() }.forEach { fish[it] = (fish[it] ?: 0) + 1 }
+        intsSplitBy(input[0], ",").forEach { fish[it] = (fish[it] ?: 0) + 1 }
         for (d in 1..days) fish = nextDay(fish)
         return fish.values.sum()
     }
