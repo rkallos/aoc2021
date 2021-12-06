@@ -1,8 +1,6 @@
-inline fun LongArray.rotate(): LongArray = LongArray(size) { this[(it + 1) % size] }
-
 fun main() {
     fun nextDay(fish: LongArray): LongArray {
-        val res = fish.rotate()
+        val res = LongArray(fish.size) { fish[(it + 1) % fish.size]}
         res[6] += res[8]
         return res
     }
